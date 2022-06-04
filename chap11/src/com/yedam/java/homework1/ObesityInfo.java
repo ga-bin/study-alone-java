@@ -19,13 +19,13 @@ public class ObesityInfo extends StandardWeightInfo {
 
 	public String getObesity(int weight) {
 		double standardWeight = super.getStandardWeight(super.height);
-		double obesity = (weight - standardWeight) / standardWeight * 100;
-		if (obesity < 18.5) {
+		double bmi = (weight - standardWeight) / standardWeight * 100;
+		if (bmi < 18.5) {
 			return "저체중";
-		} else if (obesity < 24) {
+		} else if (bmi < 24) {
 			return "정상";
 
-		} else if (obesity < 28) {
+		} else if (bmi < 28) {
 			return "과체중";
 		} else {
 			return "비만";
