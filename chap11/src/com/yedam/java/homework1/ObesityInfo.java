@@ -24,7 +24,6 @@ public class ObesityInfo extends StandardWeightInfo {
 			return "저체중";
 		} else if (bmi < 24) {
 			return "정상";
-
 		} else if (bmi < 28) {
 			return "과체중";
 		} else {

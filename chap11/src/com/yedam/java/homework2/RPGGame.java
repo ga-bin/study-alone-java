@@ -46,10 +46,11 @@ public class RPGGame implements Keypad {
 	public void changeMode() {
 		if (currentMode == NORMAL_MODE) {
 			currentMode = HARD_MODE;
-		} else if(currentMode == NORMAL_MODE) {
-			currentMode = HARD_MODE;
-		}
-		System.out.println(currentMode);	
+			System.out.println("현재모드 : HARD_MODE");
+		} else if(currentMode == HARD_MODE) {
+			currentMode = NORMAL_MODE;
+			System.out.println("현재모드 : NORMAL_MODE");
+		}	
 	}
 
 }
