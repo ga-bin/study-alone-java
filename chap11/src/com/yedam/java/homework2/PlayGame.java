@@ -40,6 +40,8 @@ public class PlayGame {
 		game.rightUpButton();
 		game.leftUpButton();
 		game.rightDownButton();
+		
+		
 
 	}
 

@@ -28,6 +28,8 @@ public class GameTest {
 				changeGame();
 			} else if (selectNum == 9) {
 				exit();
+			} else {
+				printInputError();
 			}
 		}
 	}
@@ -69,6 +71,7 @@ public class GameTest {
 		if (game instanceof RPGGame) {
 			game = new ArcadeGame();
 			System.out.println("arcade 게임을 시작합니다.");
+			
 		} else if (game instanceof ArcadeGame) {
 			game = new RPGGame();
 			System.out.println("rpg 게임을 시작합니다.");
@@ -78,5 +81,10 @@ public class GameTest {
 	private void exit() {
 		System.out.println("프로그램 종료");
 		run = false;
+		// break;
+	}
+	
+	private void printInputError() {
+		System.out.println("0~5, 9의 숫자를 입력하세요");
 	}
 }
