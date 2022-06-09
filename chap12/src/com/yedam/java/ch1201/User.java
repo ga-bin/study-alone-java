@@ -3,6 +3,7 @@ package com.yedam.java.ch1201;
 public class User extends Thread {
 	private static int serial = 0;
 	private Calculator cal;
+	private int numInfo; // serial을 저장해놓아야한다.
 	
 	public void setCalculator(Calculator cal) {
 		serial += 100;
@@ -12,6 +13,7 @@ public class User extends Thread {
 	
 	@Override
 	public void run() {
-		cal.setMemory(100 + serial);
+		cal.setMemory(100 + numInfo);
 	}
+	
 }

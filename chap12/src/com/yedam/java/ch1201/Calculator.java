@@ -19,7 +19,7 @@ public class Calculator {
 		} catch (InterruptedException e) {		
 		}Thread info = Thread.currentThread();
 		// interrupted가 걸린 thread가 뭔지 출력
-		System.out.println("현재 스레드 : " + info.getName() + ", memory : " + memory);
+		System.out.println("현재 스레드 : " + info.getName() + ", memory : " + this.memory);
 	}
 	
 }
