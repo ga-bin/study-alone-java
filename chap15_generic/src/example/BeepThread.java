@@ -1,5 +1,7 @@
 package example;
 
+import java.awt.Toolkit;
+
 public class BeepThread extends Thread {
 	// thread에도 run메소드가 있는데 왜 runnable을 통해서 sleep을 걸어야하는가?
 	// Thread를 상속받아서 실행하기
@@ -26,6 +28,14 @@ public class BeepThread extends Thread {
 	
 	@Override
 	public void run() {
-		
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		for (int i = 0; i < 5; i++) {
+			toolkit.beep();
+			System.out.println("비프음이 발생합니다.");
+			try {
+				Thread.sleep(500);
+			} catch (Exception e) {
+			}
+		}
 	}
 }
