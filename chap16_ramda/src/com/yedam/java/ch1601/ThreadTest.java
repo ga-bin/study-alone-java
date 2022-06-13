@@ -27,4 +27,10 @@ public class ThreadTest	implements Runnable {
 		thread.start();
 	}
 
+	@Override
+	public void run() {
+		
+		
+	}
+
 }

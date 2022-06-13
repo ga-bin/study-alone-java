@@ -10,7 +10,7 @@ public class MethodTest {
 		
 		// t제네릭타입에 어떤 타입이 들어가야 하는지 직접 지정해 줘야 한다)
 		Util.boxing(100); // 이런식으로 해도 문제가 없는 것은, 
-		// util의 매개변수가 하나밖에 없고, 매개변수값이 100이라서 t가 integer라는 것을 자바가 유추하는 것 
+		// util의 boxing메소드의 매개변수가 하나밖에 없고, 매개변수값이 100이라서 t가 integer라는 것을 자바가 유추하는 것 
 		
 		Pair<Integer, String> p1 = new Pair<>(1, "사과");
 		Pair<Integer, String> p2 = new Pair<>(1, "사과");
