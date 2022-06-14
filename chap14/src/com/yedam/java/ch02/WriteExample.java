@@ -22,7 +22,7 @@ public class WriteExample {
 		
 		writer = new FileWriter("d:/dev/temp/test8.db");
 		
-		// 캐릭터 타입으로 보내기
+		// 캐릭터 타입 배열로 보내기
 		char[] array1 = {'A', 'B', 'C'};
 		
 		writer.write(array1);
@@ -32,7 +32,7 @@ public class WriteExample {
 		
 		writer = new FileWriter("d:/dev/temp/test9.db");
 		
-		// 캐릭터타입 배열로 보내기
+		// 캐릭터타입 배열 인덱스로 보내기
 		char[] array2 = {'A', 'B', 'C', 'D', 'E'};
 		writer.write(array2, 3 ,2);
 		

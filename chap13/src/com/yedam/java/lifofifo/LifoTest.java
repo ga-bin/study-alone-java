@@ -3,7 +3,7 @@ package com.yedam.java.lifofifo;
 import java.util.Stack;
 
 public class LifoTest {
-
+	// list in first out
 	public static void main(String[] args) {
 		Stack<Integer> box = new Stack<>();
 

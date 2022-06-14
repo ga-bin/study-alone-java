@@ -33,7 +33,7 @@ public class StringTest {
 		Iterator<String> keyIterator = keySet.iterator(); // 반복자 가지고 오기
 		while(keyIterator.hasNext()) { // while문으로 key값, value값 가지고오기
 			String key = keyIterator.next(); // next는 반본자의 메소드로 컬렉션에서 하나의 객체를 가져온다.
-			Integer value = map.get(key); // map에서 값을 가져오는 방법
+			Integer value = map.get(key); // get은 key값으로 value를 가져온다.
 			System.out.println("\t" + key + " : " + value);
 		}
 		for(String key : keySet) { // or 향상된 for문으로 key값, value값 가지고오기

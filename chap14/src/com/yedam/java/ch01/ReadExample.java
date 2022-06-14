@@ -22,7 +22,7 @@ public class ReadExample {
 
 		is.close();
 		System.out.println("============================");
-
+		System.out.println("test2.db");
 		is = new FileInputStream("d:/dev/temp/test2.db");
 		// 배열의 값을 읽어오는 경우
 		byte[] buffer = new byte[100];
@@ -47,7 +47,7 @@ public class ReadExample {
 
 		is = new FileInputStream("d:/dev/temp/test3.db"); // 10, 20, 30, 40, 50
 		// 배열의 값을 읽어오는 경우
-		int readByteNum = is.read(buffer, 3, 2); // 버퍼인덱스의 값을 3번째자리부터 2개 채운다.
+		int readByteNum = is.read(buffer, 3, 2); // test3에서 2개의 값을 가져와서 인덱스 3의 자리부터 채운다
 		// 10, 20, 30, 10, 20으로 바뀐다
 		
 		for(int i = 0; i < (3+readByteNum); i++) {

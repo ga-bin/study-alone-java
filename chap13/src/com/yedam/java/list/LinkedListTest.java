@@ -31,6 +31,7 @@ public class LinkedListTest {
 		start = System.nanoTime();
 		for (int i = 0; i < 10000; i++) {
 			list2.add(0, String.valueOf(i));
+			// 인덱스 0번에 중간에 계속 추가하는 경우
 		}
 		end = System.nanoTime();
 		System.out.println("LinkedList 걸린시간 : " + 

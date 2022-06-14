@@ -1,9 +1,7 @@
-package com.yedam.java.list;
+package com.yedam.java.map;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.yedam.java.map.Student;
 
 public class StudentTest {
 

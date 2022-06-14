@@ -55,7 +55,7 @@ public class StringTest {
 		if(set.isEmpty()) { 
 			// isEmpty메소드는 컬렉션 내부가 비었는지 확인하는 메소드
 			// 최상위인 컬렉션 클래스에 선언되어있어서 컬렉션 프레임워크에서 전부 사용 가능
-			System.out.println("");
+			System.out.println("비어있음");
 		}
 	}
 
