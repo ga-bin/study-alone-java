@@ -65,6 +65,7 @@ public class EmpDAO {
 
 	public void dbConfig() {
 		// properties 를 사용하면 key, value형태만 유지되면 알아서 값을 가진다.
+		// properties는 map 형태로 되어있음
 		// config 패키지만들기 -> db.properties만들기
 		// driver=oracle.jdbc.driver.OracleDriver
 //		url=jdbc:oracle:thin:@localhost:1521:xe
@@ -110,6 +111,7 @@ public class EmpDAO {
 		List<Employee> list = new ArrayList<>();
 		try {
 			connect();
+			// stmt 객체 생성
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM employees");
 			while (rs.next()) {
@@ -175,6 +177,7 @@ public class EmpDAO {
 			connect();
 			String sql = "INSERT INTO employees VALUE (?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
+			// 매개변수로 받은 employee객체에서 id를 가지고와서 sql문에 셋팅하기
 			pstmt.setInt(1, emp.getEmployeeId());
 			pstmt.setString(2, emp.getFirstName());
 			pstmt.setString(3, emp.getLastName());

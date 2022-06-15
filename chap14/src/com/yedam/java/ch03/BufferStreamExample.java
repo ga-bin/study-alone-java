@@ -38,7 +38,7 @@ public class BufferStreamExample {
 		System.out.println("버퍼를 사용하지 않았을 때 : " + nonBufferTime + "ns");
 		
 		fis1.close();
-		fis1.close();
+		fos1.close();
 		
 		// buffer 스트림이 있는 경우
 		String originalFilePath2 = BufferStreamExample.class.getResource("KakaoTalk_20220615_101337436.jpg").getPath();
@@ -56,8 +56,8 @@ public class BufferStreamExample {
 		long BufferTime = copy(bis, bos);
 		System.out.println("버퍼를 사용했을 때 : " + BufferTime + "ns");
 		
-		fis1.close();
-		fis1.close();
+		fis2.close();
+		fos2.close();
 	}
 	
 	
