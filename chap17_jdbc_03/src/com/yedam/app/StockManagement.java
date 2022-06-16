@@ -1,4 +1,4 @@
-package com.yedam.app.common;
+package com.yedam.app;
 
 public class StockManagement {
 	
