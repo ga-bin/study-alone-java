@@ -7,8 +7,15 @@ public class Product {
 	// productID는 시퀀스로 돈다
 	private String productName;
 	private int productPrice;
+	private int productAmount;
 	
 	
+	public int getProductAmount() {
+		return productAmount;
+	}
+	public void setProductAmount(int productAmount) {
+		this.productAmount = productAmount;
+	}
 	public int getProductId() {
 		return productId;
 	}

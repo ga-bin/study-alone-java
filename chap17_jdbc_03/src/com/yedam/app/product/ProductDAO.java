@@ -1,4 +1,4 @@
-package com.yedam.app.product;
+ package com.yedam.app.product;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -97,7 +97,7 @@ public class ProductDAO extends DAO {
 		Product pro = null;
 		try {
 			connect();
-			String sql = "SELECT * FROM product WHERE product_id = " + productId;
+			String sql = "SELECT * FROM product WHERE product_id ="  + productId;
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
@@ -120,7 +120,7 @@ public class ProductDAO extends DAO {
 		Product pro = null;
 		try {
 			connect();
-			String sql = "SELECT * FROM product WHERE product_id = " + productName;
+			String sql = "SELECT * FROM product WHERE product_name = '" + productName + "'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
@@ -133,7 +133,8 @@ public class ProductDAO extends DAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			disconnect();
+		} finally {
+		disconnect();
 		}
 		return pro;
 	}
