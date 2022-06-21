@@ -104,7 +104,6 @@ public class ProductInfoManagement extends Management {
 	private Product inputUpdateInfo(Product product) {
 		// 기존에 product에서 가지고 있던 정보 그대로 가지고오고
 		// 수정할 것만 수정
-		System.out.println("기존 정보");
 		System.out.println("기존 제품이름" + product.getProductName());
 		System.out.println("수정할 이름을 입력하세요(수정하지 않을 경우0)>");
 		String name = inputName();

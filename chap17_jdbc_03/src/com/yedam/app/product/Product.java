@@ -3,7 +3,7 @@ package com.yedam.app.product;
 public class Product {
 	// vo클래스
 	// 필드
-	private int productId;
+	private int productId; 
 	// productID는 시퀀스로 돈다
 	private String productName;
 	private int productPrice;

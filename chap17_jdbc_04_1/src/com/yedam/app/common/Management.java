@@ -1,6 +1,17 @@
 package com.yedam.app.common;
 
+import java.util.Scanner;
+
+import com.yedam.app.deal.ReceivingGoodsDAO;
+import com.yedam.app.deal.TakeOutGoodsDAO;
+import com.yedam.app.product.ProductDAO;
+
 public class Management {
+	
+	protected ProductDAO pDAO = ProductDAO.getInstance();
+	protected ReceivingGoodsDAO rDAO = ReceivingGoodsDAO.getInstance();
+	protected TakeOutGoodsDAO tDAO = TakeOutGoodsDAO.getInstance();
+	protected Scanner sc = new Scanner(System.in);
 	
 	public void run() {
 		while(true) {
@@ -18,7 +29,6 @@ public class Management {
 				break;
 			} else {
 				showInputError();
-				break;
 			} 
 		}
 	}

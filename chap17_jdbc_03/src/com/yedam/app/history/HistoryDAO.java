@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.yedam.app.common.DAO;
+import com.yedam.app.product.Product;
 
 public class HistoryDAO extends DAO {
 	// 싱글톤
@@ -45,6 +46,8 @@ public class HistoryDAO extends DAO {
 			disconnect();
 		}
 	}
+	
+	
 	
 	// 수정 - 입고, 출고는 건드리지 않고 단순히 수량만 수정만 하는것으로
 	public void update(History history) {
@@ -182,6 +185,7 @@ public class HistoryDAO extends DAO {
 					list.put(key, inAmount);
 				}
 				}
+			
 			
 			
 			

@@ -95,15 +95,25 @@ public class StockManagement {
 		System.out.println("메뉴에 있는 숫자를 입력하세요 ");
 	}
 	
-	private void inputProduct() {
-		// 전제조건 : 기존의 상품과 이름은 다르게 들어간다.
-		// 제품정보 입력
-		Product product = inputAll();
-		// DB에 저장
-		pDAO.insert(product);
-		
-	}
+//	private void inputProduct() {
+//		// 전제조건 : 기존의 상품과 이름은 다르게 들어간다.
+//		// 제품정보 입력
+//		Product product = inputAll();
+//		
+//		// DB에 저장
+//		pDAO.insert(product);
+//	}
 
+	
+	private void inputProduct() {
+		Product product = inputAll();
+		History history = new History();
+		history.setProductId(product.getProductId());
+		history.setProductAmount(0);
+		history.setProductCategory(1);
+		pDAO.insert(product);
+		hDAO.insert(history);
+	}
 	
 	private void productIn() {
 		// 입고할 제품과 수량 입력 
@@ -114,7 +124,7 @@ public class StockManagement {
 		
 		if (product != null) {
 			History history = new History();
-			history.setProductId(product.getProductId());
+			history.setProductId(info.getProductId());
 			history.setProductCategory(1);
 			history.setProductAmount(info.getProductAmount());
 			hDAO.insert(history);
@@ -126,7 +136,29 @@ public class StockManagement {
 		// 기존에 등록되지 않은 경우 별도 안내
 	}
 	}
-		
+	
+	// 근데 해당제품의 정보가 history에는 없어야하는거 아냐?
+	// 해당제품의 정보가 아예없는것
+	// 우리가 구현하고자 하는 것은 해당제품의 정보는 product에 있는데 history에는 없어서
+	// 등록했는데 출력이 안되는 문제를 막으려고 하는것
+	
+	// 이것을 해결하기 위해서는
+	// 등록된 product를 historyDAO에 등록을해야한다
+	// 그러고나서 재고량을 0으로 만들어야한다.
+	
+	// 오빠가 이야기한것은 history에 입고나 출고를 할 때 product에 등록되어있는지 없는지 확인하는 기능이 있고
+	// history에서 입고량이랑 출고량을 가져오는 기능도 이미 있으니까
+	
+	// historyDAO에서 입고량과 출고량을 0으로 셋팅하면 될것같은데
+	// product에 등록되어있다고하더라도 historyDAO에 등록되지 않는 것이 있어서 등록상품이 안뜨는거니까
+	// 우리가 억지로 유저들에게 재고를 0으로 등록하게 할 수는 없으니
+	// 우리가 productDAO에 있으면 무조건 historyDAO에 등록하고 재고를 0으로 셋팅하면 될듯
+	
+	// 오빠가 말한것처럼 이 사진속의 메소드를 수정할 수 없을것같은이유는
+	// 이 사진은 history에 입고나 출고를할때 product에 등록되어있는지 없는지 확인하는 메소드니까
+	// 무조건 입고나 출고를 시키는 메소드를 유저가 사용해야하는데 그렇지 않고 상품 등록만된 경우에 어떻게 처리할것이냐를
+	// 내가 고민하고 잇는거라서 이 메소드는 사용할 수 없지 않을까 생각...
+	
 		private Product inputAll() {
 			Product product = new Product();
 			System.out.println("제품이름 >");
@@ -135,7 +167,7 @@ public class StockManagement {
 			product.setProductAmount(inputNum());
 			return product;
 		}
-		
+	
 	private void productOut() {
 		// 출고할 제품과 수량을 입력
 		Info info = inputAmount();
@@ -151,7 +183,7 @@ public class StockManagement {
 			if (stock >= info.getProductAmount()) {
 				// -1 조건을 모두 만족하는 경우 출고 처리
 				History history = new History();
-				history.setProductId(product.getProductId());
+				history.setProductId(info.getProductId());
 				history.setProductCategory(2);
 				history.setProductAmount(info.getProductAmount());
 				
@@ -162,6 +194,10 @@ public class StockManagement {
 			}
 			
 		} 
+	
+	// 지금 stockmanagement에서 historyDAO와 관련된 메소드는
+	// 입고량(productIn), 출고량(productOut)을 등록하고 이미 있는 입고량 출고량을 가져오는 것(selectAll) 밖에 없다
+	// 그러니까 입력받은 정보를 productDAO에 등록하는 메소드랑, historyDAO
 	
 		
 	
