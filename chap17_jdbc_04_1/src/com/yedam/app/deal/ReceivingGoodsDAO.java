@@ -65,6 +65,8 @@ public class ReceivingGoodsDAO extends DAO {
 	// 입고 수량
 	public int selectAmount(int productId) {
 		int amount = 0;
+		String sql = "SELECT NVL(SUM(product_amount), 0) AS sum FROM receiving_goods WHERE productId = ? ";
+		pstmt = conn.prepareStatement(sql);
 		try {
 			connection();
 		} catch(SQLException e) {

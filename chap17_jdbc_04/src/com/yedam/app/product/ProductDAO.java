@@ -112,7 +112,7 @@ public class ProductDAO extends DAO {
 		Product product = null;
 		try {
 			connection();
-			String sql = "SELECT * FROM products WHERE product_name = " + productName;
+			String sql = "SELECT * FROM products WHERE product_name = '" + productName+"'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
@@ -133,7 +133,7 @@ public class ProductDAO extends DAO {
 	}
 	
 	// 전체조회
-	public List selectAll(Product product) {
+	public List selectAll() {
 		List<Product> list = new ArrayList<>();
 		try {
 			String sql = "SELECT * FROM products ORDER BY product_id";
@@ -141,6 +141,7 @@ public class ProductDAO extends DAO {
 			rs = stmt.executeQuery(sql);
 			
 			while (rs.next()) {
+				Product product = new Product();
 				product.setProductId(rs.getInt("product_id"));
 				product.setProductName(rs.getString("product_name"));
 				product.setProductPrice(rs.getInt("product_price"));

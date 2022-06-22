@@ -8,6 +8,18 @@ import java.util.List;
 import com.yedam.app.common.DAO;
 
 public class TakeoutGoodsDAO extends DAO {
+	private static TakeoutGoodsDAO tDAO = null;
+	
+	private TakeoutGoodsDAO() {
+		
+	}
+	
+	public static TakeoutGoodsDAO getInstance() {
+		if (tDAO == null) {
+			tDAO = new TakeoutGoodsDAO();
+		}
+		return tDAO;
+	}
 	
 	// 출고상품 등록
 	public void insert(DealInfo info) {
@@ -77,9 +89,9 @@ public class TakeoutGoodsDAO extends DAO {
 		try {
 			connection();
 			String sql = "SELECT t.deal_date, t.product_id, p.product_name, t.product_amount"
-					+ "FROM take_out_goods t JOIN products p"
-					+ "ON t.product_id = p.product_id"
-					+ "ORDER BY t.deal_date";
+					+ " FROM take_out_goods t JOIN products p"
+					+ " ON t.product_id = p.product_id"
+					+ " ORDER BY t.deal_date";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {

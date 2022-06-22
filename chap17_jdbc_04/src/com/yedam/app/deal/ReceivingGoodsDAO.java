@@ -29,7 +29,7 @@ public class ReceivingGoodsDAO extends DAO {
 	public void insert(DealInfo info) {
 		try {
 			connection();
-			String sql = "INSERT INTO reciving_goods (product_id, product_amount) VALUES (?, ?)";
+			String sql = "INSERT INTO receiving_goods (product_id, product_amount) VALUES (?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, info.getProductId());
 			pstmt.setInt(2, info.getProductAmount());
@@ -99,9 +99,9 @@ public class ReceivingGoodsDAO extends DAO {
 		try {
 			connection();
 			String sql = "SELECT r.deal_date, r.product_id, p.product_name, r.product_amount"
-					+ "FROM receiving_goods r JOIN products p"
-					+ "ON p.product_id = r.product_id"
-					+ "ORDER BY r.deal_date";
+					+ " FROM receiving_goods r JOIN products p"
+					+ " ON p.product_id = r.product_id"
+					+ " ORDER BY r.deal_date";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {

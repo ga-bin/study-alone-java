@@ -8,6 +8,12 @@ public class DealInfo {
 	int productAmount;
 	String productName;
 	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 	public Date getDealDate() {
 		return dealDate;
 	}

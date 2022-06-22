@@ -50,7 +50,7 @@ public class ProductDAO extends DAO {
 	public void updateStock(Product product) {
 		try {
 			connection();
-			String sql = "UPDATE products SET product_stock = ? WHERE productId = ?";
+			String sql = "UPDATE products SET product_stock = ? WHERE product_id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, product.getProductStock());
 			pstmt.setInt(2, product.getProductId());
